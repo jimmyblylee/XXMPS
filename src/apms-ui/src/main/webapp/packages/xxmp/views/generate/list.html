@@ -1,0 +1,95 @@
+<div class="form">
+    <form action="#" class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">科所队</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="科所队" ng-model="condition.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">地址</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="地址" ng-model="condition.add">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-right margin-bottom-15">
+                <a href="javascript:" class="btn btn-sm green" ng-click="load()"><i class="fa fa-search"></i> 搜索</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-users"></i> <b>{{token['user']['org']['bureau']['name']}} - {{token['user']['org']['name']}}</b> - 门楼牌审核
+        </div>
+        <div class="tools">
+            <a href="javascript:" class="fullscreen"></a>
+            <a href="javascript:" class="reload" ng-click="load()"></a>
+        </div>
+        <div class="actions">
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-scrollable">
+            <table class="table table-bordered table-hover table-advance">
+                <thead>
+                    <tr>
+                        <th class="text-center wid160px">单位</th>
+                        <th class="text-center wid60px">网格</th>
+                        <th class="text-center wid60px">网格员</th>
+                        <th class="text-center wid100px">地址</th>
+                        <th class="text-center wid140px">操作</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="item in list">
+                        <td class="text-center">{{item['station']}} {{item['station']}}</td>
+                        <td class="text-center">{{item['WangGe']}}</td>
+                        <td class="text-center">{{item['WangGeFZR']}}</td>
+                        <td class="text-center">
+                            <a href="javascript:" bs-popover data-original-title="{{item['lastUpdateUser']['name']}}<a href='javascript:' class='close'>&times;</a>"
+                               data-placement="left" data-content="<b><i class='fa fa-newspaper-o'></i> 省:</b> {{item['Sheng']}}<br/>
+                                            <b><i class='icon-user'></i> 市:</b> {{item['Shi']}}<br/>
+                                            <b><i class='icon-calendar'></i> 区县:</b> {{item['QuXian']}}<br/>
+                                            <b><i class='icon-screen-desktop'></i> 乡镇街道:</b> {{item['XiangZhenJieDao']}}<br/>
+                                            <b><i class='icon-calendar'></i> 路巷/行政区:</b> {{item['LuXiangXingZhengCun']}}<br/>
+                                            <b><i class='icon-calendar'></i> 小区/自然村:</b> {{item['XiaoQuZiRanCun']}}<br/>
+                                            <b><i class='icon-calendar'></i> 门牌/村组:</b> {{item['MenPaiCunZu']}}<br/>
+                                            <b><i class='icon-calendar'></i> 楼号/单位:</b> {{item['LouHaoDanWei']}}<br/>
+                                            <b><i class='icon-calendar'></i> 单元号/房号:</b> {{item['DanYuanHaoFangHao']}}<br/>
+                                            <b><i class='icon-calendar'></i> 房间号:</b> {{item['FangJianHao']}}<br/>">
+                                {{item['XiangZhenJieDao']}}{{item['XiaoQuZiRanCun']}}{{item['LouHaoDanWei']}}号{{item['DanYuanHaoFangHao']}}{{item['FangJianHao']}}室
+                            </a>
+                        </td>
+                        <td>
+                            <!-- view -->
+                            <!--suppress HtmlUnknownAnchorTarget -->
+                            <a href="/#viewAuxploiceApplyModalDiv" data-toggle="modal" class="btn btn-xs blue"
+                               bs-tooltip data-title="查看" ng-click="prepareToView(item)">
+                                <i class="fa fa-picture-o"></i>
+                            </a>
+                            <!-- view -->
+                            <!--suppress HtmlUnknownAnchorTarget -->
+                            <a href="/#generateModalDiv" data-toggle="modal" class="btn btn-xs green"
+                               bs-tooltip data-title="生成防伪码" ng-click="prepareToGenerate(item)">
+                                <i class="fa fa-code"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div table-paging-footer></div>
+    </div>
+</div>

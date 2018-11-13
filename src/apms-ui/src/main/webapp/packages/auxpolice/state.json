@@ -1,0 +1,112 @@
+{
+    "aux_apply": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "门楼牌申请",
+            "pageSubTitle": "科所队，登记门楼牌情况"
+        },
+        "templateUrl": "packages/auxpolice/views/apply/main.html",
+        "controller": "AuxApplyListCtrl",
+        "files": [
+            "packages/auxpolice/css/person_info.css",
+
+            "resources/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css",
+            "resources/global/plugins/jquery-file-upload/css/jquery.fileupload.css",
+
+            "resources/global/plugins/id-card-validator.js",
+
+            "packages/com/js/UploadPhotoCtrl.js",
+
+            "packages/auxpolice/js/apply/AuxApplyListCtrl.js",
+            "packages/auxpolice/js/apply/AuxApplyModifyCtrl.js",
+            "packages/auxpolice/js/apply/AuxApplyViewCtrl.js",
+            "packages/auxpolice/js/com/AuxModifyCtrl.js"
+        ]
+    },
+    "aux_approve": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "门楼牌审核",
+            "pageSubTitle": "审核科所队上报注册登记的门楼牌信息"
+        },
+        "templateUrl": "packages/auxpolice/views/approve/main.html",
+        "controller": "AuxApproveListCtrl",
+        "files": [
+            "packages/auxpolice/css/person_info.css",
+
+            "packages/auxpolice/js/approve/AuxApproveListCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtListCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtViewCtrl.js"
+        ]
+    },
+    "aux_log": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "申请审核记录",
+            "pageSubTitle": "在门楼牌上报注册审批过程中的工作记录"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "ComingCtrl",
+        "files": [
+            "packages/index/css/coming-soon.css",
+
+            "resources/global/plugins/backstretch/jquery.backstretch.min.js",
+            "resources/global/plugins/countdown/jquery.countdown.min.js",
+            "resources/global/plugins/countdown/plugin/jquery.countdown-zh-CN.js",
+            "packages/index/js/ctrls/ComingCtrl.js"
+        ]
+    },
+    "aux_bureau": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "分局门楼牌信息",
+            "pageSubTitle": "管理分局拥有的门楼牌"
+        },
+        "templateUrl": "packages/auxpolice/views/mgmt/main.html",
+        "controller": "AuxMgmtListCtrl",
+        "files": [
+            "packages/auxpolice/css/person_info.css",
+
+            "resources/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css",
+            "resources/global/plugins/jquery-file-upload/css/jquery.fileupload.css",
+
+            "resources/global/plugins/id-card-validator.js",
+
+            "packages/com/js/UploadPhotoCtrl.js",
+
+            "packages/auxpolice/js/mgmt/AuxMgmtListCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtModifyCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtViewCtrl.js",
+            "packages/auxpolice/js/com/AuxModifyCtrl.js"
+        ]
+    },
+    "aux_all": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "全部门楼牌信息",
+            "pageSubTitle": "管理所有门楼牌"
+        },
+        "templateUrl": "packages/auxpolice/views/mgmtall/main.html",
+        "controller": "AuxMgmtallListCtrl",
+        "files": [
+            "packages/auxpolice/css/person_info.css",
+
+            "resources/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css",
+            "resources/global/plugins/jquery-file-upload/css/jquery.fileupload.css",
+
+            "resources/global/plugins/id-card-validator.js",
+
+            "packages/com/js/UploadPhotoCtrl.js",
+
+            "packages/auxpolice/js/mgmtall/AuxMgmtallListCtrl.js",
+            "packages/auxpolice/js/mgmtall/AuxMgmtallModifyCtrl.js",
+            "packages/auxpolice/js/mgmtall/AuxMgmtallViewCtrl.js",
+            "packages/auxpolice/js/com/AuxModifyCtrl.js"
+        ]
+    }
+}

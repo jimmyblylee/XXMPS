@@ -1,0 +1,21 @@
+<div class="modal fade" id="generateModalDiv" role="dialog" aria-hidden="true" ng-controller="ApplyViewCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true"></a>
+                <h4 class="modal-title"><i class="icon-drawer"></i> {{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="resources/layouts/layout4/img/generate.png">
+                <div style="position: absolute; top: 320px; left: 70px;">
+                    <div>sn:{{entity["sn"]}}</div>
+                    <div>guid:{{entity["guid"]}}</div>
+                    <div>rd:{{entity["rd"]}}</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline dark" data-dismiss="modal" aria-hidden="true"> 关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+<div class="form">
+    <form action="#" class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">科所队</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="科所队" ng-model="condition.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">地址</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="地址" ng-model="condition.add">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-right margin-bottom-15">
+                <a href="javascript:" class="btn btn-sm blue" ng-click="load()"><i class="fa fa-search"></i> 搜索</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="portlet box blue">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-users"></i> <b>{{token['user']['org']['bureau']['name']}} - {{token['user']['org']['name']}}</b> - 门楼牌登记申请
+        </div>
+        <div class="tools">
+            <a href="javascript:" class="fullscreen"></a>
+            <a href="javascript:" class="reload" ng-click="load()"></a>
+        </div>
+        <div class="actions">
+            <!--suppress HtmlUnknownAnchorTarget -->
+            <a href="/#modifyAuxploiceApplyModalDiv" data-toggle="modal" class="btn btn-default" ng-click="prepareToAdd()">
+                <i class="glyphicon glyphicon-plus"></i> 新申请
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="mt-element-card mt-element-overlay">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="item in list">
+                    <div class="mt-card-item">
+                        <div class="mt-card-avatar mt-overlay-1">
+                            <img src="resources/layouts/layout4/img/blue.png" style="width: 235px;height: 235px;"/>
+                            <div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; color: white;">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">省：</td>
+                                        <td style="text-align: left;">{{item["Sheng"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">市：</td>
+                                        <td style="text-align: left;">{{item["Shi"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">区县：</td>
+                                        <td style="text-align: left;">{{item["QuXian"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">乡镇/街道：</td>
+                                        <td style="text-align: left;">{{item["XiangZhenJieDao"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">路巷/行政村：</td>
+                                        <td style="text-align: left;">{{item["LuXiangXingZhengCun"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">小区/自然村：</td>
+                                        <td style="text-align: left;">{{item["XiaoQuZiRanCun"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">门牌/村组：</td>
+                                        <td style="text-align: left;">{{item["MenPaiCunZu"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">楼号/单位：</td>
+                                        <td style="text-align: left;">{{item["LouHaoDanWei"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">单元号/房号：</td>
+                                        <td style="text-align: left;">{{item["DanYuanHaoFangHao"]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%; text-align: right;">房间号：</td>
+                                        <td style="text-align: left;">{{item["FangJianHao"]}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="mt-overlay">
+                                <ul class="mt-info">
+                                    <li>
+                                        <!--suppress HtmlUnknownAnchorTarget -->
+                                        <a class="btn btn-xs btn-outline blue"
+                                           href="/#viewAuxploiceApplyModalDiv" data-toggle="modal"
+                                           ng-click="prepareToView(item)" bs-tooltip data-title="查看">
+                                            <i class="fa fa-picture-o"></i>
+                                        </a>
+                                    </li>
+                                    <li ng-if="item['status']['code'] === 'TO_APPLY'||item['status']['code'] === 'REJECTED'">
+                                        <!--suppress HtmlUnknownAnchorTarget -->
+                                        <a class="btn btn-xs btn-outline yellow-gold"
+                                           href="/#modifyAuxploiceApplyModalDiv" data-toggle="modal"
+                                           ng-click="prepareToModify(item)" bs-tooltip data-title="修改">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </li>
+                                    <li ng-if="item['status']['code'] === 'TO_APPLY' || item['status']['code'] === 'REJECTED'">
+                                        <!--suppress HtmlUnknownAnchorTarget -->
+                                        <a class="btn btn-xs btn-outline blue-steel"
+                                           ng-click="take(item, 'apply')" bs-tooltip data-title="上报">
+                                            <i class="fa fa-thumbs-up"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-card-content">
+                            <h3 class="mt-card-name">{{item['name']}}  <i class="icon-bubbles bold font-{{cfg['FLOW'][item['status']['code']].color}}"></i>
+                                <span class="font-xs bg-{{cfg['FLOW'][item['status']['code']].color}} bg-font-{{cfg['FLOW'][item['status']['code']].color}}" style="padding: 0 3px;">
+                                    {{item['status']['value']}}
+                                </span>
+                            </h3>
+                            <p class="mt-card-desc font-grey-mint"><i class="fa fa-building-o"></i>(单位) {{item['bureau']}} {{item['station']}}</p>
+                            <p class="mt-card-desc font-grey-mint"><i class="fa fa-building-o"></i>(网格) {{item['WangGe']}} <i class="fa fa-user"></i> {{item['WangGeFZR']}}</p>
+                            <p class="mt-card-desc font-grey-mint"><i class="fa fa-phone"></i> {{item['WangGeFZRTel']}} <i class="fa fa-mobile"></i> {{item['WangGeFZRMobile']}}</p>
+                            <div class="mt-card-social">
+                                <ul>
+                                    <li>
+                                        <a href="mailto:{{item['mail']}}" bs-tooltip data-title="发送邮件给">
+                                            <i class="icon-envelope-open"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:{{item['mobile']}}" bs-tooltip data-title="打电话给ta">
+                                            <i class="fa fa-phone"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div table-paging-footer></div>
+    </div>
+</div>

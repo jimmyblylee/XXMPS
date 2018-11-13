@@ -1,0 +1,128 @@
+<div data-ng-include="'packages/index/tpl/nav.html'+cacheVersion"></div>
+
+<div class="form">
+    <form action="#" class="form-horizontal">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label col-md-3">部门</label>
+                    <div class="col-md-9">
+                        <div class="input-icon right">
+                            <i class="fa fa-close font-grey-gallery margin-right-20" ng-click="condition.station.bureau = undefined"></i>
+                            <ui-select ng-model="condition.station.bureau" theme="bootstrap">
+                                <ui-select-match placeholder="选择或查找..."><span>{{$select.selected.name}}</span></ui-select-match>
+                                <ui-select-choices repeat="item in bureauList | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label col-md-3">姓名</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="姓名" ng-model="condition.name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <a href="javascript:" class="btn btn-sm red-mint" ng-click="load()"><i class="fa fa-search"></i> 搜索</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+        <div class="portlet box red-mint">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-users"></i> 用户列表
+                </div>
+                <div class="tools">
+                    <a href="javascript:" class="fullscreen"></a>
+                    <a href="javascript:" class="reload" ng-click="load()"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable">
+                    <table class="table table-bordered table-hover table-advance">
+                        <thead>
+                            <tr>
+                                <th class="text-center wid140px">所属部门</th>
+                                <th class="text-center wid90px">用户名</th>
+                                <th class="text-center wid90px">账号</th>
+                                <th class="text-center wid90px">操作</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="item in list">
+                                <td class="text-center">{{item['station']['bureau']['name']}}-{{item['station']['name']}}</td>
+                                <td class="text-center">{{item['name']}}</td>
+                                <td class="text-center">{{item.account.account}}</td>
+                                <td class="text-center">
+                                    <a href="javascript:" class="btn btn-xs red-flamingo" bs-tooltip data-title="配置权限"
+                                       ng-click="queryAuth(item)">
+                                        <i class="icon-magic-wand"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div table-paging-footer></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="portlet box red-mint">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-key"></i>{{currentUser.name}} 功能列表
+                </div>
+                <div class="tools">
+                    <a href="javascript:" class="fullscreen"></a>
+                    <a href="javascript:" class="reload" ng-click="load()"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable">
+                    <table class="table table-hover table-advance">
+                        <thead>
+                            <tr>
+                                <th class="text-center wid140px">功能</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="func in funcList">
+                                <td class="highlight">
+                                    <div ng-class="{
+                                                    'danger':  func['level'] === 0,
+                                                    'warning': func['level'] === 1,
+                                                    'info':    func['level'] === 2,
+                                                    'success': func['level'] === 3,
+                                                    'primary': func['level'] === 4
+                                                    }" style="margin-left: {{func['level'] * 30}}px;">
+                                    </div>
+                                    <a href="javascript:" style="margin-left: {{15 + func['level'] * 30}}px;">
+                                        <i class="margin-right-10 {{func['icon']}}"></i>{{func['name']}}
+                                    </a>
+                                    <div class="md-checkbox pull-right">
+                                        <input type="checkbox" id="func_checked_{{func['id']}}" class="md-check" checked ng-model="func.isAssigned" ng-change="onAuthChange(func);">
+                                        <label for="func_checked_{{func['id']}}">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span></label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

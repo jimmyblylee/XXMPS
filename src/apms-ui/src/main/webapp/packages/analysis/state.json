@@ -1,0 +1,55 @@
+{
+    "analysis_capability": {
+        "data": {
+            "nav": ["监察与决策"],
+            "isBuiltIn": true,
+            "pageTitle": "统计展示",
+            "pageSubTitle": "统计门楼牌信息"
+        },
+        "templateUrl": "packages/analysis/views/capability.html",
+        "controller": "CapabilityCtrl",
+        "files": [
+            "packages/analysis/js/CapabilityEduCtrl.js",
+            "packages/analysis/js/CapabilityAgeCtrl.js",
+            "packages/analysis/js/CapabilityPerCtrl.js",
+            "packages/analysis/js/CapabilityCtrl.js"
+        ]
+    },
+    "analysis_check": {
+        "data": {
+            "nav": ["监察与决策"],
+            "isBuiltIn": true,
+            "pageTitle": "门牌异常管理",
+            "pageSubTitle": "门楼牌识别异常管理"
+        },
+        "templateUrl": "packages/analysis/views/check.html",
+        "controller": "AuxMgmtListCtrl",
+        "files": [
+            "packages/auxpolice/css/person_info.css",
+
+            "packages/com/js/UploadPhotoCtrl.js",
+
+            "packages/auxpolice/js/mgmt/AuxMgmtListCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtModifyCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtViewCtrl.js"
+        ]
+    },
+    "analysis_supervise": {
+        "data": {
+            "nav": ["监察与决策"],
+            "isBuiltIn": true,
+            "pageTitle": "监察分析",
+            "pageSubTitle": "分析各级科所队相应辅警情况"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "ComingCtrl",
+        "files": [
+            "packages/index/css/coming-soon.css",
+
+            "resources/global/plugins/backstretch/jquery.backstretch.min.js",
+            "resources/global/plugins/countdown/jquery.countdown.min.js",
+            "resources/global/plugins/countdown/plugin/jquery.countdown-zh-CN.js",
+            "packages/index/js/ctrls/ComingCtrl.js"
+        ]
+    }
+}

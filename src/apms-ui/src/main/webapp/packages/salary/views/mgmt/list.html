@@ -1,0 +1,141 @@
+<div class="form">
+    <form action="#" class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label class="control-label col-md-4">姓名</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" placeholder="姓名" ng-model="condition.name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 fade">
+                <div class="form-group form-md-line-input">
+                    <label class="control-label col-md-6">工资是否正常</label>
+                    <div class="col-md-6">
+                        <div class="md-radio-inline">
+                            <div class="md-radio has-info">
+                                <input type="radio" id="radio55" name="radio2" class="md-radiobtn" checked>
+                                <label for="radio55" ng-click="condition.isSalaryNormal = undefined">
+                                    <span></span>
+                                    <span class="check"></span>
+                                    <span class="box"></span> 全部 </label>
+                            </div>
+                            <div class="md-radio has-success">
+                                <input type="radio" id="radio53" name="radio2" class="md-radiobtn">
+                                <label for="radio53" ng-click="condition.isSalaryNormal = true">
+                                    <span></span>
+                                    <span class="check"></span>
+                                    <span class="box"></span> 正常 </label>
+                            </div>
+                            <div class="md-radio has-warning">
+                                <input type="radio" id="radio54" name="radio2" class="md-radiobtn">
+                                <label for="radio54" ng-click="condition.isSalaryNormal = false">
+                                    <span></span>
+                                    <span class="check"></span>
+                                    <span class="box"></span> 不正常 </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-right margin-bottom-15">
+                <a href="javascript:" class="btn btn-sm yellow-gold" ng-click="load()"><i class="fa fa-search"></i> 搜索</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="portlet box yellow-gold">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-users"></i> <b>{{token['user']['org']['bureau']['name']}}</b> - 辅警信息
+        </div>
+        <div class="tools">
+            <a href="javascript:" class="fullscreen"></a>
+            <a href="javascript:" class="reload" ng-click="load()"></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-scrollable">
+            <table class="table table-bordered table-hover table-advance">
+                <thead>
+                    <tr>
+                        <th class="text-center wid120px">单位</th>
+                        <th class="text-center wid90px">姓名</th>
+                        <th class="text-center wid90px">性别</th>
+                        <th class="text-center wid60px">学历</th>
+                        <th class="text-center wid120px">手机</th>
+                        <th class="text-center wid90px">基本工资</th>
+                        <th class="text-center wid90px">绩效奖金</th>
+                        <th class="text-center wid90px">所得税</th>
+                        <th class="text-center wid90px">个付社保</th>
+                        <th class="text-center wid90px">个付公积金</th>
+                        <th class="text-center wid90px">司付社保</th>
+                        <th class="text-center wid90px">司付公积金</th>
+                        <th class="text-center wid90px">实付工资</th>
+                        <th class="text-center wid90px">司付总额</th>
+                        <th class="text-center wid90px">操作</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="item in list">
+                        <td class="text-center">{{item['bureau']['name']}} {{item['station']['name']}}</td>
+                        <td class="text-center">
+                            <!--suppress HtmlUnknownAnchorTarget -->
+                            <a href="/#viewAuxploiceMgmtModalDiv" data-toggle="modal" class="btn btn-link"
+                               bs-tooltip data-title="查看" ng-click="prepareToView(item)">
+                                {{item['name']}}
+                            </a>
+                        </td>
+                        <td class="text-center">{{item['sex']['value']}}</td>
+                        <td class="text-center">{{item['eduDegree']['value']}}</td>
+                        <td class="text-center">{{item['mobile']}}</td>
+                        <td class="text-center">
+                            <div class="input-group ">
+                                <input type="text" class="form-control" ng-model="item['salaryBase']" placeholder="￥-" ng-change="computeSalary(item);">
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="input-group ">
+                                <input type="text" class="form-control" ng-model="item['salaryBonus']" placeholder="￥-" ng-change="computeSalary(item);">
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="input-group ">
+                                <input type="text" class="form-control" ng-model="item['salaryTax']" placeholder="￥-" ng-change="computeSalary(item);">
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="input-group ">
+                                <input type="text" class="form-control" ng-model="item['salarySSS']" placeholder="￥-" ng-change="computeSalary(item);">
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="input-group ">
+                                <input type="text" class="form-control" ng-model="item['salarySFund']" placeholder="￥-" ng-change="computeSalary(item);">
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="input-group ">
+                                <input type="text" class="form-control" ng-model="item['salaryCSS']" placeholder="￥-" ng-change="computeSalary(item);">
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="input-group ">
+                                <input type="text" class="form-control" ng-model="item['salaryCFund']" placeholder="￥-" ng-change="computeSalary(item);">
+                            </div>
+                        </td>
+                        <td class="text-center">{{item['salarySGet'] ? item['salarySGet'] : "-"}}</td>
+                        <td class="text-center">{{item['salaryCPay'] ? item['salaryCPay'] : "-"}}</td>
+                        <td class="text-center wid90px">
+                            <button type="button" class="btn " ng-click="changeSalary(item)"
+                                    ng-class="{'btn-danger': !item['isSalaryNormal'], 'btn-success': item['isSalaryNormal']}">保存</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div table-paging-footer></div>
+    </div>
+</div>

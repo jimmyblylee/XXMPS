@@ -1,0 +1,207 @@
+<div data-ng-include="'packages/index/tpl/nav.html'+cacheVersion"></div>
+
+<div class="form">
+    <form action="#" class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">SN</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="SN" ng-model="condition.sn">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">GUID</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="GUID" ng-model="condition.guid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">RD</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="RD" ng-model="condition.rd">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-right margin-bottom-15">
+                <a href="javascript:" class="btn btn-sm blue" ng-click="validate()"><i class="fa fa-check"></i> 校验</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="form" ng-hide="valid">
+    <label class="control-label font-red-thunderbird">请输入正确校验码。如果校验成功，会展示详细门楼牌信息。</label>
+</div>
+<div class="form" ng-hide="!valid">
+    <label class="control-label font-green-seagreen">校验完成，目标校验码为正确校验码。</label>
+    <form class="form-horizontal">
+        <div class="form-body">
+            <h3 class="form-section">标准地址</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">省</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["Sheng"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">市</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["Shi"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">区县</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["QuXian"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">乡镇/街道</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["XiangZhenJieDao"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">路巷/行政村</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["LuXiangXingZhengCun"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">小区/自然村</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["XiaoQuZiRanCun"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">门牌/村组</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["MenPaiCunZu"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">楼号/单位</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["LouHaoDanWei"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">单元号/房号</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["DanYuanHaoFangHao"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">房间号</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">{{entity["FangJianHao"]}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="form-section">责任单位</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">分局</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static">{{entity["bureau"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">派出所</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static">{{entity["station"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">网格</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static">{{entity["WangGe"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">网格员</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static">{{entity["WangGeFZR"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">联系方式</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static"><i class="fa fa-phone"></i> {{entity['WangGeFZRTel']}} <i class="fa fa-mobile"></i> {{entity['WangGeFZRMobile']}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="form-section">审批情况</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">状态</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static">
+                                <i class="icon-bubbles bold font-{{cfg['FLOW'][entity['status']['code']].color}}"></i>
+                                <span class="font-xs bg-{{cfg['FLOW'][entity['status']['code']].color}} bg-font-{{cfg['FLOW'][entity['status']['code']].color}}" style="padding: 0 3px;">
+                                    {{entity['status']['value']}}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">提交人</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static">{{entity["tjr"]}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">审核人</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static">{{entity["shr"]}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+{
+    "xxmp": {
+        "url": "packages/xxmp/state.json"
+    },
+    "dept": {
+        "url": "packages/dept/state.json"
+    },
+    "index": {
+        "url": "packages/index/state.json"
+    },
+    "sys": {
+        "url": "packages/sys/state.json"
+    },
+    "common": {
+        "url": "packages/common/state.json"
+    }
+}

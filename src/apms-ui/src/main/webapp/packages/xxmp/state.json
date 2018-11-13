@@ -1,0 +1,127 @@
+{
+    "aux_apply": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "门楼牌申请",
+            "pageSubTitle": "科所队，登记门楼牌情况"
+        },
+        "templateUrl": "packages/xxmp/views/apply/main.html",
+        "controller": "ApplyCtrl",
+        "files": [
+            "packages/xxmp/js/ApplyCtrl.js",
+            "packages/xxmp/js/ApplyViewCtrl.js",
+            "packages/xxmp/js/ApplyModifyCtrl.js"
+        ]
+    },
+    "aux_approve": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "门楼牌审核",
+            "pageSubTitle": "审核科所队上报注册登记的门楼牌信息"
+        },
+        "templateUrl": "packages/xxmp/views/approve/main.html",
+        "controller": "ApplyCtrl",
+        "files": [
+            "packages/xxmp/js/ApplyCtrl.js",
+            "packages/xxmp/js/ApplyViewCtrl.js"
+        ]
+    },
+    "aux_log": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "申请审核记录",
+            "pageSubTitle": "在门楼牌上报注册审批过程中的工作记录"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "BlankCtrl",
+        "files": [
+            "packages/index/js/ctrls/BlankCtrl.js"
+        ]
+    },
+    "aux_bureau": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "门楼牌防伪码生成",
+            "pageSubTitle": "门楼牌防伪码生成"
+        },
+        "templateUrl": "packages/xxmp/views/generate/main.html",
+        "controller": "ApplyCtrl",
+        "files": [
+            "packages/xxmp/js/ApplyCtrl.js",
+            "packages/xxmp/js/ApplyViewCtrl.js"
+        ]
+    },
+    "aux_all": {
+        "data": {
+            "nav": ["门楼牌信息维护"],
+            "isBuiltIn": true,
+            "pageTitle": "门楼牌识别校验",
+            "pageSubTitle": "门楼牌识别校验"
+        },
+        "templateUrl": "packages/xxmp/views/validate/main.html",
+        "controller": "ApplyCtrl",
+        "files": [
+            "packages/xxmp/js/ApplyCtrl.js"
+        ]
+    },
+    "analysis_capability": {
+        "data": {
+            "nav": ["监察与决策"],
+            "isBuiltIn": true,
+            "pageTitle": "统计展示",
+            "pageSubTitle": "统计门楼牌信息"
+        },
+        "templateUrl": "packages/xxmp/views/report/capability.html",
+        "controller": "CapabilityCtrl",
+        "files": [
+            "packages/xxmp/js/CapabilityEduCtrl.js",
+            "packages/xxmp/js/CapabilityAgeCtrl.js",
+            "packages/xxmp/js/CapabilityPerCtrl.js",
+            "packages/xxmp/js/CapabilityCtrl.js"
+        ]
+    },
+    "analysis_check": {
+        "data": {
+            "nav": ["监察与决策"],
+            "isBuiltIn": true,
+            "pageTitle": "门牌异常管理",
+            "pageSubTitle": "门楼牌识别异常管理"
+        },
+        "templateUrl": "packages/xxmp/views/exception/main.html",
+        "controller": "ExceptionCtrl",
+        "files": [
+            "packages/xxmp/js/ExceptionCtrl.js"
+        ]
+    },
+    "salary_mgmt": {
+        "data": {
+            "nav": ["通用处理"],
+            "isBuiltIn": true,
+            "pageTitle": "制牌信息导出",
+            "pageSubTitle": "门楼牌制牌信息导出"
+        },
+        "templateUrl": "packages/xxmp/views/export/main.html",
+        "controller": "ApplyCtrl",
+        "files": [
+            "packages/xxmp/js/ApplyCtrl.js",
+            "packages/xxmp/js/ApplyViewCtrl.js"
+        ]
+    },
+    "salary_book": {
+        "data": {
+            "nav": ["通用处理"],
+            "isBuiltIn": true,
+            "pageTitle": "识别记录",
+            "pageSubTitle": "门楼牌识别记录"
+        },
+        "templateUrl": "packages/xxmp/views/log/main.html",
+        "controller": "LogCtrl",
+        "files": [
+            "packages/xxmp/js/LogCtrl.js"
+        ]
+    }
+}

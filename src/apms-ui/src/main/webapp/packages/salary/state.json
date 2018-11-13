@@ -1,0 +1,34 @@
+{
+    "salary_mgmt": {
+        "data": {
+            "nav": ["通用处理"],
+            "isBuiltIn": true,
+            "pageTitle": "制牌信息导出",
+            "pageSubTitle": "门楼牌制牌信息导出"
+        },
+        "templateUrl": "packages/salary/views/mgmt/main.html",
+        "controller": "SalaryListCtrl",
+        "files": [
+            "packages/auxpolice/css/person_info.css",
+
+            "packages/salary/js/SalaryListCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtViewCtrl.js"
+        ]
+    },
+    "salary_book": {
+        "data": {
+            "nav": ["通用处理"],
+            "isBuiltIn": true,
+            "pageTitle": "识别记录",
+            "pageSubTitle": "门楼牌识别记录"
+        },
+        "templateUrl": "packages/salary/views/book/main.html",
+        "controller": "AuxMgmtListCtrl",
+        "files": [
+            "packages/auxpolice/css/person_info.css",
+
+            "packages/auxpolice/js/mgmt/AuxMgmtListCtrl.js",
+            "packages/auxpolice/js/mgmt/AuxMgmtViewCtrl.js"
+        ]
+    }
+}

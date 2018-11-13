@@ -1,0 +1,84 @@
+<div class="form">
+    <form action="#" class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">开始时间</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" ng-model="item.start" bs-tooltip data-title="开始时间" placeholder="yyyy-MM-dd"
+                                       bs-datepicker data-date-format="yyyy-MM-dd" data-max-date="today" data-date-type="string">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">结束时间</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" ng-model="item.start" bs-tooltip data-title="结束时间" placeholder="yyyy-MM-dd"
+                                       bs-datepicker data-date-format="yyyy-MM-dd" data-max-date="today" data-date-type="string">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-right margin-bottom-15">
+                <a href="resources/source/export.xlsx" class="btn btn-sm yellow-casablanca"><i class="fa fa-search"></i> 搜索</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="portlet box yellow-casablanca">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-users"></i> <b>{{token['user']['org']['bureau']['name']}} - {{token['user']['org']['name']}}</b> - 识别记录
+        </div>
+        <div class="tools">
+            <a href="javascript:" class="fullscreen"></a>
+            <a href="javascript:" class="reload" ng-click="load()"></a>
+        </div>
+        <div class="actions">
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-scrollable">
+            <table class="table table-bordered table-hover table-advance">
+                <thead>
+                    <tr>
+                        <th class="text-center wid160px">时间</th>
+                        <th class="text-center wid90px">终端</th>
+                        <th class="text-center wid60px">用户</th>
+                        <th class="text-center wid60px">地址</th>
+                        <th class="text-center wid100px">类型</th>
+                        <th class="text-center wid140px">结果</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="item in list">
+                        <td class="text-center">{{item["time"]}}</td>
+                        <td class="text-center">
+                            <span class="label label-sm bg-{{item.client == '电脑' ? 'green' : 'yellow'}}">
+                                {{item['client']}}
+                            </span>
+                        </td>
+                        <td class="text-center">{{item["user"]}}</td>
+                        <td class="text-center">{{item["address"]}}</td>
+                        <td class="text-center">
+                            <span class="label label-sm bg-{{item.type == '查询校验' ? 'purple' : 'blue'}}">
+                                {{item['type']}}
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <span class="label label-sm bg-{{item.result == '校验成功' ? 'green' : 'red'}}">
+                                {{item['result']}}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div table-paging-footer></div>
+    </div>
+</div>
